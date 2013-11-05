@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{888F0693-4967-48D2-8CE2-9F18E2085E53}</ProjectGuid>
+    <RootNamespace>TerrainPhyX</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\OgreSDK_vc10_v1-8-1\include\OGRE\Terrain;C:\OgreSDK_vc10_v1-8-1\include;C:\OgreSDK_vc10_v1-8-1\include\OGRE;C:\OgreSDK_vc10_v1-8-1\include\OIS;C:\OgreSDK_vc10_v1-8-1\boost;$(ProjectDir)\Externals\NxOgre\sdk;$(ProjectDir)\Externals\Critter\sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_MBCS(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\OgreSDK_vc10_v1-8-1\lib\debug;C:\OgreSDK_vc10_v1-8-1\boost\lib;$(ProjectDir)\Externals\NxOgre\Debug\lib;$(ProjectDir)\Externals\Critter\Debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;OgreTerrain_d.lib;NxOgre.lib;CritterDebugStatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)TerrainPhyX\Resources" "$(OutDir)Resources\" /s/e/d/i/y
+xcopy "$(SolutionDir)TerrainPhyX\Config\Debug" "$(OutDir)Config\Debug" /s/e/d/i/y
+xcopy "$(SolutionDir)TerrainPhyX\Externals\Ogre\Bin\Debug\*.dll" "$(OutDir)" /s/e/d/i/y
+xcopy "$(SolutionDir)TerrainPhyX\Externals\NxOgre\Debug\Bin\*.dll" "$(OutDir)" /s/e/d/i/y
+xcopy "$(SolutionDir)TerrainPhyX\Externals\PhysX\Bin\*.dll" "$(OutDir)" /s/e/d/i/y
+
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>C:\OgreSDK_vc10_v1-8-1\include\OGRE\Terrain;C:\OgreSDK_vc10_v1-8-1\include;C:\OgreSDK_vc10_v1-8-1\include\OGRE;C:\OgreSDK_vc10_v1-8-1\include\OIS;C:\OgreSDK_vc10_v1-8-1\boost;$(ProjectDir)\Externals\NxOgre\sdk;$(ProjectDir)\Externals\Critter\sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\OgreSDK_vc10_v1-8-1\lib\release;C:\OgreSDK_vc10_v1-8-1\boost\lib;$(ProjectDir)\Externals\NxOgre\Release\lib;$(ProjectDir)\Externals\Critter\Release\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OgreMain.lib;OIS.lib;OgreTerrain.lib;NxOgre.lib;CritterStatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)TerrainPhyX\Resources" "$(OutDir)Resources\" /s/e/d/i/y
+xcopy "$(SolutionDir)TerrainPhyX\Config\Release" "$(OutDir)Config\Release" /s/e/d/i/y
+xcopy "$(SolutionDir)TerrainPhyX\Externals\Ogre\Bin\Release\*.dll" "$(OutDir)" /s/e/d/i/y
+xcopy "$(SolutionDir)TerrainPhyX\Externals\NxOgre\Release\Bin\*.dll" "$(OutDir)" /s/e/d/i/y
+xcopy "$(SolutionDir)TerrainPhyX\Externals\PhysX\Bin\*.dll" "$(OutDir)" /s/e/d/i/y
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source\CBaseState.cpp" />
+    <ClCompile Include="Source\CExitState.cpp" />
+    <ClCompile Include="Source\CGame.cpp" />
+    <ClCompile Include="Source\CGraphicsManager.cpp" />
+    <ClCompile Include="Source\CInputListener.cpp" />
+    <ClCompile Include="Source\CInputManager.cpp" />
+    <ClCompile Include="Source\CPhysiXManager.cpp" />
+    <ClCompile Include="Source\CPlayState.cpp" />
+    <ClCompile Include="Source\CStatesManager.cpp" />
+    <ClCompile Include="Source\CWorldManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\CBaseState.h" />
+    <ClInclude Include="Headers\CExitState.h" />
+    <ClInclude Include="Headers\CGame.h" />
+    <ClInclude Include="Headers\CGraphicsManager.h" />
+    <ClInclude Include="Headers\CInputListener.h" />
+    <ClInclude Include="Headers\CInputManager.h" />
+    <ClInclude Include="Headers\CPhyXManager.h" />
+    <ClInclude Include="Headers\CPlayState.h" />
+    <ClInclude Include="Headers\CStatesManager.h" />
+    <ClInclude Include="Headers\CWorldManager.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

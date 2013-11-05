@@ -1,0 +1,17 @@
+material from-nxogre.org
+{
+  technique
+  {
+    pass
+    {      
+      texture_unit ambient_tex
+      {
+      }
+    }
+  }
+}
+
+material cube-from-nxogre.org : from-nxogre.org
+{
+  set_texture_alias ambient_tex nxogre.cube.png
+}
